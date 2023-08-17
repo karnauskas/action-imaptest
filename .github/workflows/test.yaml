@@ -12,4 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - run: docker build -t action-imaptest:${{ github.sha }} .
-    - run: docker run --rm  action-imaptest:${{ github.sha }} /usr/local/bin/imaptest --help
+    - run: docker run --rm action-imaptest:${{ github.sha }}

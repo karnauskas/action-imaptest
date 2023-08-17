@@ -1,0 +1,15 @@
+name: Test
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Docker build and run
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - run: docker build -t action-imaptest:${{ github.sha }} .
+    - run: docker run --rm  action-imaptest:${{ github.sha }} /usr/local/bin/imaptest --help

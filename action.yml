@@ -1,0 +1,32 @@
+# action.yml
+name: "imaptest"
+description: "IMAP server testing action"
+author: "Marius Karnauskas <marius.karnauskas@gmail.com>"
+inputs:
+  user:
+    description: "Username or pattern"
+    default: "u%04d"
+  password:
+    description: "Password"
+    default: ""
+  host:
+    description: "IMAP server hostname"
+    default: "localhost"
+  port:
+    description: "IMAP server port"
+    default: "143"
+  concurrency:
+    description: "Number of concurrent connections"
+    default: "10"
+outputs:
+  version:
+    description: "imaptest version"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - "host=${{ inputs.host }}"
+    - "port=${{ inputs.port }}"
+    - "user=${{ inputs.user }}"
+    - "pass=${{ inputs.password }}"
+    - "clients=${{ inputs.concurrency }}"

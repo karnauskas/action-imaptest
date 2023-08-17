@@ -11,5 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: docker build -t action-imaptest:${{ github.sha }} .
-    - run: docker run --rm action-imaptest:${{ github.sha }}
+    - uses: docker/build-push-action@v4
+      with:
+        cache-from: type=gha
+        cache-to: type=gha,mode=max
+        push: false
+        tags: karnauskas/action-imaptest:latest

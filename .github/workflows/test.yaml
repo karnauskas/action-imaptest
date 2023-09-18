@@ -12,7 +12,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: docker buildx create --use --driver=docker-container
-    - uses: docker/build-push-action@v4
+    - uses: docker/build-push-action@v5
       with:
         cache-from: type=gha
         cache-to: type=gha,mode=max

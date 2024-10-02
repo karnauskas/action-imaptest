@@ -20,7 +20,7 @@ jobs:
 
     - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
     - run: docker buildx create --use --driver=docker-container
-    - uses: docker/build-push-action@5cd11c3a4ced054e52742c5fd54dca954e0edd85 # v6.7.0
+    - uses: docker/build-push-action@32945a339266b759abcbdc89316275140b0fc960 # v6.8.0
       with:
         cache-from: type=gha
         cache-to: type=gha,mode=max
